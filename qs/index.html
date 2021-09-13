@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Questions Messenger</title>
+    <link href="./style/output.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="leftMenu">
+        <img id="avatar" src="./src/avatar.jpg" width="60" height="60">
+        <img id="add" src="./src/add.png" width="30" height="30" @click="newGruop">
+        <div id="name">David Hill</div>
+        <div class="status">Online</div>
+        <hr align="center" width="250" size="1" color="#8aa1a9" />
+        <div id="groupName">MESSAGES</div>
+        <div class="status" id="his">history</div>
+        <div id="groups">
+          <ul class="list">
+            <li v-for = "item in groups" :class="{marked: item.selected}" @click = "selectGroup">{{ item.name }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="messenger">
+        <div id="mesHeader">Questions Messenger</div>
+        <div class="messegeWindow">
+          <div v-for = "item in messeges">
+            <div v-if="item.groupName == selectedGroup">
+              <div class="messege" v-for = "mes in item.groupMesseges">{{ mes }}</div>
+            </div>
+          </div>
+          <div id="inputArea">
+            <textarea id="inputText" rows="3" name="text" v-model="inputText"></textarea>
+            <img id="sendIcon" src="./src/send.png" width="40" height="40" @click = "updateMesseges">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

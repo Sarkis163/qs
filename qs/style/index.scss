@@ -1,0 +1,135 @@
+$leftMenuWidth: 300px;
+$leftPadding: 12px;
+$textColor: #8aa1a9;
+
+.leftMenu {
+    background-color: #05222a;
+    position: fixed;
+    width: $leftMenuWidth;
+    height: 100%;
+    z-index: 10;
+}
+
+.list {
+    color: #adc4cc;
+    font-weight: 400;
+}
+
+li {
+    width: 80%;
+    margin-top: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.marked {
+    background-color: #0e80ac;
+    color: white;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.messenger {
+    float:right;
+    width: calc(100% - #{$leftMenuWidth});
+    z-index: 1;
+}
+
+.messegeWindow {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    background-color: #d9e7f2;
+    box-shadow: 0 0 7px $textColor;
+}
+
+.messege {
+    width: 45%;
+    font-size: larger;
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#mesHeader {
+    margin: 8px;
+    font-size: 40px;
+    font-weight: 500;
+    color: #616161;
+}
+
+#avatar {
+    margin: $leftPadding;
+    float: left;
+}
+
+#name {
+    color: white;
+    display: inline-block;
+    padding-top: 15px;
+    font-size: x-large;
+}
+
+#groupName {
+    color: white;
+    display: inline-block;
+    font-size: large;
+    font-weight: 500;
+    padding-left: $leftPadding;
+}
+
+%status{
+    color: $textColor;
+    display: table-caption;
+}
+
+.status{
+    @extend %status;
+}
+
+#his {
+    @extend %status;
+    padding-left: $leftPadding;
+}
+
+#add {
+    float: right;
+    margin: 25px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#add:hover {
+    transform: scale(1.2);
+}
+
+#inputText {
+    float: left;
+    width: calc(100% - 500px);
+    margin-left: 50px;
+}
+
+#sendIcon {
+    padding-top: 4px;
+    padding-left: $leftPadding;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#sendIcon:hover {
+    transform: scale(1.2);
+}
+
+#inputArea {
+    position: fixed;
+    bottom: $leftPadding;
+    width: 100%;
+}
+
+body {
+    margin: auto;
+    font-family: system-ui;
+}
