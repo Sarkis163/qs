@@ -27,6 +27,17 @@ const Root = defineComponent({
     },
     newGruop: function () {
       let newGroupName = prompt(`Введите название новой группы`);
+      let isUniqueName = false;
+      while (!isUniqueName && newGroupName) {
+        isUniqueName = true;
+        for (let i = 0; i < this.groups.length; i++) {
+          if (newGroupName == this.groups[i].name) {
+            newGroupName = prompt(`Такая группа уже есть, введите другое название`);
+            isUniqueName = false;
+            break;
+          }
+        }
+      }
       if (newGroupName) {
         this.groups.push({ name: newGroupName, selected: false });
         localStorage.groups = JSON.stringify(this.groups);
